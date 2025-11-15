@@ -5,7 +5,7 @@ Tech Stack
 **Frontend**
 1.Angular 17
 2.Angular Material
-3.RxJS
+3.RxJS (NOT SURE)
 4.TypeScript
 **Backend**
 1.Python
