@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "Velo backend is running smoothly."}
+    return {"message": "Hello Kashish, your backend is running!"}
