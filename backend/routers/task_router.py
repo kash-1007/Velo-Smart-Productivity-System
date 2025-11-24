@@ -12,3 +12,17 @@ fake_tasks_db = [
 @router.get("/")
 def get_tasks():
     return fake_tasks_db
+
+@router.post("/")
+def create_task(task: Task):
+    # Generate fake auto-increment ID
+    task.id = len(fake_tasks_db) + 1
+    
+    # Add to fake DB list
+    fake_tasks_db.append(task)
+    
+    return {
+        "message": "Task created successfully",
+        "task": task
+    }
+
