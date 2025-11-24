@@ -20,9 +20,26 @@ def create_task(task: Task):
     
     # Add to fake DB list
     fake_tasks_db.append(task)
-    #to run this, we will go to the server and will add /docs at the end , there we will go to the post request , and will add our demo data in the form of json.
+    #to run this, we will go to the server and will add /docs at the end , 
+    #there we will go to the post request , and will add our demo data in the form of json.
     return {
         "message": "Task created successfully",
         "task": task
     }
+
+@router.put("/tasks/{task_id}")
+def update_task(task_id: int, updated_task: Task):
+    for index, task in enumerate(fake_tasks_db):
+        if task.id == task_id:
+            fake_tasks_db[index] = updated_task
+            return {"message": "Task updated successfully", "task": updated_task}
+    return {"error": "Task not found"}
+
+@router.delete("/tasks/{task_id}")
+def delete_task(task_id: int):
+    for index, task in enumerate(fake_tasks_db):
+        if task.id == task_id:
+            deleted = fake_tasks_db[index]
+            return {"message": "Task deleted successfully", "task": deleted}
+    return {"error": "Task not found"}
 
