@@ -20,7 +20,7 @@ def create_task(task: Task):
     
     # Add to fake DB list
     fake_tasks_db.append(task)
-    
+    #to run this, we will go to the server and will add /docs at the end , there we will go to the post request , and will add our demo data in the form of json.
     return {
         "message": "Task created successfully",
         "task": task
